@@ -1,0 +1,24 @@
+{
+  "name": "ng-part",
+  "version": "1.0.0",
+  "description": "It's a UI repository of value 6 plus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onecodemanzh/ng-fan.git"
+  },
+  "keywords": [
+    "angular6",
+    "ui",
+    "ui库"
+  ],
+  "author": "wenly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onecodemanzh/ng-fan/issues"
+  },
+  "homepage": "https://github.com/onecodemanzh/ng-fan#readme"
+}
