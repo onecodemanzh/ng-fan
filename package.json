@@ -1,6 +1,6 @@
 {
   "name": "ng-part",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "It's a UI repository of angular 6 plus",
   "main": "index.js",
   "types": "./index.d.ts",
@@ -8,11 +8,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p .",
-    "b":"npm run build",
+    "b": "npm run build",
     "version": "npm version prerelease",
-    "v":"mpm run v",
+    "v": "mpm run v",
     "publish": "npm run b && npm publish",
-    "p":"npm run publish"
+    "p": "npm run publish"
   },
   "repository": {
     "type": "git",
