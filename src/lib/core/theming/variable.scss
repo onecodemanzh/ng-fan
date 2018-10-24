@@ -1,0 +1,46 @@
+$prefix: fan;
+// 6种状态
+$primary:       #19f;       // 主色
+$info:          #2f96b4;    // 信息
+$success:       #51a351;    // 成功
+$warning:       #f89406;    // 警告
+$error:         #bd362f;    // 错误
+$accent:        #f48;       // 强调
+
+$title:         #464c5b;    // 标题
+$sub:           #9ea7b4;    // 子标题
+$content:       #657180;    // 内容
+$disabled:      #c3cbd6;    // 禁用
+$border:        #d7dde4;    // 边框
+$divider:       #e3e8ee;    // 分割线
+$background:    #f5f7f9;    // 背景色
+
+// 6颜色        light    dark  
+$light-primary: lighten($primary, 5%);
+$light-info:    lighten($info, 5%);
+$light-success: lighten($success, 5%);
+$light-warning: lighten($warning, 5%);
+$light-error:   lighten($error, 5%);
+$light-accent:  lighten($accent, 5%);
+
+$dark-primary:  darken($primary, 5%);
+$dark-info:     darken($info, 5%);
+$dark-success:  darken($success, 5%);
+$dark-warning:  darken($warning, 5%);
+$dark-error:    darken($error, 5%);
+$dark-accent:   darken($accent, 5%);
+
+// 状态列表 按钮等各各状态
+$status-map: (primary: $primary, info: $info, success: $success, warning: $warning, error: $error, accent: $accent);
+
+
+
+
+
+
+
+
+
+
+
+

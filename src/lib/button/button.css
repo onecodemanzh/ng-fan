@@ -1,0 +1,17 @@
+[fan-primary-button], .fan-primary-button {
+  background-color: #19f; }
+
+[fan-info-button], .fan-info-button {
+  background-color: #2f96b4; }
+
+[fan-success-button], .fan-success-button {
+  background-color: #51a351; }
+
+[fan-warning-button], .fan-warning-button {
+  background-color: #f89406; }
+
+[fan-error-button], .fan-error-button {
+  background-color: #bd362f; }
+
+[fan-accent-button], .fan-accent-button {
+  background-color: #f48; }

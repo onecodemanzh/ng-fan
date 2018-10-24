@@ -1,0 +1,183 @@
+@import './variable';
+
+///  生成 常用 margin padding
+///  cd src/app/styles      node-sass --watch unify.scss unify.css
+/* *
+*   margin padding 4 5 6 8 10 15 16 18 20 25 30 35 40; 
+*   no-margin,no-padding
+* */
+@each $margin in $box-attributes {
+    @each $direction in $direction-list {
+        @each $space in $space-list {
+            .#{$margin}#{$direction}#{$space} {
+                @if $space == null {}
+                @else {
+                    #{$margin}#{$direction}: str-slice(#{$space}, 2, 4 ) + $unit $important;
+                }
+            }
+        }
+        .no-#{$margin}#{$direction} {
+            #{$margin}#{$direction}: none $important;
+        }
+    }
+}
+/// -------------------------------------------------------------------------
+/// border-radius 
+/* *
+*  border-radius  2 4 5 6 8 10 50%
+* */
+@each $border-radius in $radius-space-list {
+    .border-radius#{str-slice(#{$border-radius}, 1, 3 )} {
+        @if str-slice(#{$border-radius}, 2, 4 ) == '50%' {
+            border-radius: str-slice(#{$border-radius}, 2, 4 ) $important;
+        }
+        @else {
+            border-radius: str-slice(#{$border-radius}, 2, 4 ) + $unit $important;
+        }
+    }
+}
+/// -------------------------------------------------------------------------
+/* *
+*   width 30 36 40 48 60 80 100 120
+* */
+@each $width in $width-space-list {
+    .width#{str-slice(#{$width}, 1, 6 )} {
+        width: str-slice(#{$width}, 2, 6 ) + $unit $important;
+    }
+}
+/* *
+*   max-width 30 36 40 48 60 80 100 120
+* */
+@each $max-width in $max-width-space-list {
+    .max-width#{str-slice(#{$max-width}, 1, 6 )} {
+        max-width: str-slice(#{$max-width}, 2, 6 ) + $unit $important;
+    }
+}
+/* *
+*   min-width 30 36 40 48 60 80 100 120
+* */
+@each $min-width in $min-width-space-list {
+    .min-width#{str-slice(#{$min-width}, 1, 6 )} {
+        min-width: str-slice(#{$min-width}, 2, 6 ) + $unit $important;
+    }
+}
+/* *
+*   height 30 36 40 48 60 80 100 120
+* */
+@each $height in $height-space-list {
+    .height#{str-slice(#{$height}, 1, 6 )} {
+        height: str-slice(#{$height}, 2, 6 ) + $unit $important;
+    }
+}
+/* *
+*   max-height 30 36 40 48 60 80 100 120
+* */
+@each $max-height in $max-height-space-list {
+    .max-height#{str-slice(#{$max-height}, 1, 6 )} {
+        max-height: str-slice(#{$max-height}, 2, 6 ) + $unit $important;
+    }
+}
+/* *
+*   min-height 30 36 40 48 60 80 100 120
+* */
+@each $min-height in $min-height-space-list {
+    .min-height#{str-slice(#{$min-height}, 1, 6 )} {
+        min-height: str-slice(#{$min-height}, 2, 6 ) + $unit $important;
+    }
+}
+/// -------------------------------------------------------------------------
+/* *
+*   flex  flex-inline
+* */
+@each $flex-prefix, $flex-suffix in $flex-mode-map {
+    .flex#{$flex-prefix} {
+        display: $flex-suffix;
+    }
+}
+/* *
+*             flex容器下 元素 对齐方式   要配合 flex class一起使用
+*   flex-start     起点对齐
+*   flex-end       终点对齐
+*   flex-center    中间对齐
+*   flex-between   两端对齐
+*   flex-around    间隔相等
+* */
+@each $flex-prefix, $flex-suffix in $flex-align-map {
+    .flex-#{$flex-prefix} {
+        justify-content: $flex-suffix;
+    }
+}
+/* * 
+*            flex容器下 元素排列方向   要配合 flex class一起使用
+*   flex-direction-right      从左到右
+*   flex-direction-left       从右到左
+*   flex-direction-down       从上到下
+*   flex-direction-up         从下到上
+* */
+@each $flex-prefix, $flex-suffix in $flex-direction-map {
+    .flex-direction-#{$flex-prefix} {
+        flex-direction: $flex-suffix;
+    }
+}
+/* * 
+*            flex容器下 元素 如果一条轴线排不下，如何换行   要配合 flex class一起使用
+*   flex-nowrap           不换行
+*   flex-wrap             换行，第一行在上方。
+*   flex-wrap-reverse     换行，第一行在下方。
+* */
+@each $flex-prefix, $flex-suffix in $flex-wrap-map {
+    .flex-#{$flex-prefix} {
+        flex-wrap: $flex-suffix;
+    }
+}
+/* * 
+*            flex容器下 元素 axis 交叉轴 对齐方式   要配合 flex class一起使用
+*   flex-axis-align-start           交叉轴的起点对齐
+*   flex-axis-align-end             交叉轴的终点对齐。
+*   flex-axis-align-center          交叉轴的中点对齐。
+*   fflex-axis-align-baseline       项目的第一行文字的基线对齐。
+*   flex-axis-align-stretch         占满整个容器的高度
+* */
+@each $flex-prefix, $flex-suffix in $flex-axis-align-map {
+    .flex-axis-align-#{$flex-prefix} {
+        align-items: $flex-suffix;
+    }
+}
+/* * 
+*            flex容器下 元素 多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。   要配合 flex class一起使用
+*   flex-align-content-start           与交叉轴的起点对齐
+*   flex-align-content-end             与交叉轴的终点对齐。
+*   flex-align-content-center          与交叉轴的中点对齐。
+*   flex-align-content-between         与交叉轴两端对齐，轴线之间的间隔平均分布。
+*   flex-align-content-around          每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+*   flex-align-content-stretch         轴线占满整个交叉轴
+* */
+@each $flex-prefix, $flex-suffix in $align-content-map {
+    .flex-align-content-#{$flex-prefix} {
+        align-content: $flex-suffix;
+    }
+}
+/// -------------------------------------------------------------------------
+.no-select{
+    user-select: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

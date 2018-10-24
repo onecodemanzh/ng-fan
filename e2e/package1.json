@@ -1,15 +1,7 @@
 {
   "name": "ng-part",
   "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "packagr": "ng-packagr -p ng-package.json"
-  },
+  "description": "It's a UI repository of angular 6 plus",
   "private": false,
   "peerDependencies": {
     "@angular/animations": "^6.1.0",
@@ -25,9 +17,23 @@
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onecodemanzh/ng-fan.git"
+  },
+  "keywords": [
+    "angular6",
+    "ui",
+    "ui库"
+  ],
+  "author": "wenly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/onecodemanzh/ng-fan/issues"
+  },
+  "homepage": "https://github.com/onecodemanzh/ng-fan#readme",
   "dependencies": {
-    
-  
+    "tslib": "^1.9.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",
@@ -50,5 +56,15 @@
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "~2.7.2"
-  }
+  },
+  "main": "bundles/ui.umd.js",
+  "module": "fesm5/ui.js",
+  "es2015": "fesm2015/ui.js",
+  "esm5": "esm5/ui.js",
+  "esm2015": "esm2015/ui.js",
+  "fesm5": "fesm5/ui.js",
+  "fesm2015": "fesm2015/ui.js",
+  "typings": "ui.d.ts",
+  "metadata": "ui.metadata.json",
+  "sideEffects": false
 }
