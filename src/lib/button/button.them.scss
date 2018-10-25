@@ -1,0 +1,12 @@
+// @import '../core/theming/variable';
+@import './button.base';
+
+// 根据状态 生成各状态属性和class 样式
+// @each $status, $color1 in $status-map {
+//     button[#{$prefix}-#{$status}-button], button.#{$prefix}-#{$status}-button {
+//         background-color: $color1;
+//     }
+// }
+
+
+

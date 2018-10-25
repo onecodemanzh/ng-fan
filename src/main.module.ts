@@ -2,13 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './example/app.component';
+import { FanButtonModule } from './lib';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FanButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

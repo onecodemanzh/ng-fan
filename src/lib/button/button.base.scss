@@ -1,0 +1,8 @@
+@import '../core/theming/variable';
+
+@each $status, $color in $status-map {/* .#{$prefix}-#{$status}-button */
+    .#{$prefix}-#{$status}-button {
+        background-color: $color;
+        
+    }
+}

@@ -6,6 +6,7 @@ $success:       #51a351;    // 成功
 $warning:       #f89406;    // 警告
 $error:         #bd362f;    // 错误
 $accent:        #f48;       // 强调
+$danger:        #f5222d;    // 背景色
 
 $title:         #464c5b;    // 标题
 $sub:           #9ea7b4;    // 子标题
@@ -31,7 +32,7 @@ $dark-error:    darken($error, 5%);
 $dark-accent:   darken($accent, 5%);
 
 // 状态列表 按钮等各各状态
-$status-map: (primary: $primary, info: $info, success: $success, warning: $warning, error: $error, accent: $accent);
+$status-map: (primary: $primary, info: $info, danger: $danger, success: $success, warning: $warning, error: $error, accent: $accent);
 
 
 
