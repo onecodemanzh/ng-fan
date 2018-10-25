@@ -9,6 +9,7 @@ const reg = /\[(.+?)\]/g;
   moduleId: module.id,
   // tslint:disable-next-line:max-line-length
   selector: 'button[fan-primary-button],button[fan-info-button],button[fan-success-button],button[fan-danger-button],button[fan-warning-button],button[fan-error-button],button[fan-accent-button]',
+  exportAs: 'fanButton',
   templateUrl: 'button.html',
   styleUrls: ['button.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -45,6 +46,7 @@ export class FanButton implements OnInit {
   moduleId: module.id,
   // tslint:disable-next-line:max-line-length
   selector: 'a[fan-primary-button],a[fan-info-button],a[fan-success-button],a[fan-danger-button],a[fan-warning-button],a[fan-error-button],a[fan-accent-button]',
+  exportAs: 'fanButton, fanAnchor',
   templateUrl: 'button.html',
   styleUrls: ['button.scss'],
   encapsulation: ViewEncapsulation.None,
