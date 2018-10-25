@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FanButton } from './button';
+import { FanButton, FanAnchor } from './button';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [FanButton],
-  exports: [FanButton]
+  declarations: [FanButton, FanAnchor],
+  exports: [FanButton, FanAnchor]
 })
 export class FanButtonModule { }

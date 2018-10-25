@@ -10,21 +10,21 @@ export const Prefix = 'fan';
 /* *
     计算并返回组件选择器
 */
-export function getComponentSelect(component: string): string {
-    const attrs: string[] = getAttrs(component);
+export function GetComponentSelect(component: string): string {
+    const attrs: string[] = GetAttrs(component);
     // const cssClass: string[] = getCssClass(component);
     return attrs.join(',');
 }
 /* *
     计算并返回组件attr选择器
 */
-export function getAttrs(component: string): string[] {
+export function GetAttrs(component: string): string[] {
     return FacadeStatus.map(status => `${component}[${Prefix}-${status}-${component}]`);
 }
 /* *
     计算并返回组件class选择器
 */
-export function getCssClass(component: string): string[] {
+export function GetCssClass(component: string): string[] {
     return FacadeStatus.map(status => `${component}[${Prefix}-${status}-${component}]`);
 }
 

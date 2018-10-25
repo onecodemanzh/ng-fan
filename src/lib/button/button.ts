@@ -1,12 +1,14 @@
 import { Component, OnInit, ElementRef, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
-import { getComponentSelect, getAttrs } from '../core';
-const selector: string = getComponentSelect('button');
-const BUTTON_HOST_ATTRIBUTES = getAttrs('button');
+import { GetComponentSelect, GetAttrs } from '../core';
+// const selector: string = GetComponentSelect('button');
+// console.log(selector);
+const BUTTON_HOST_ATTRIBUTES = GetAttrs('button');
 const reg = /\[(.+?)\]/g;
 @Component({
   moduleId: module.id,
-  selector: selector,
+  // tslint:disable-next-line:max-line-length
+  selector: 'button[fan-primary-button],button[fan-info-button],button[fan-success-button],button[fan-danger-button],button[fan-warning-button],button[fan-error-button],button[fan-accent-button]',
   templateUrl: 'button.html',
   styleUrls: ['button.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -39,6 +41,15 @@ export class FanButton implements OnInit {
   }
 }
 
+@Component({
+  moduleId: module.id,
+  // tslint:disable-next-line:max-line-length
+  selector: 'a[fan-primary-button],a[fan-info-button],a[fan-success-button],a[fan-danger-button],a[fan-warning-button],a[fan-error-button],a[fan-accent-button]',
+  templateUrl: 'button.html',
+  styleUrls: ['button.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
 export class FanAnchor extends FanButton implements OnInit {
   constructor(elementRef: ElementRef) {
     super(elementRef);
