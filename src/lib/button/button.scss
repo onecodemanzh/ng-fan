@@ -1,0 +1,8 @@
+@import './button.base';
+
+@each $status, $color in $status-map {/* .#{$prefix}-#{$status}-button */
+    .#{$prefix}-#{$status} {
+        background-color: $color;
+        
+    }
+}

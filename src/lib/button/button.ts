@@ -1,33 +1,59 @@
 import { Component, OnInit, ElementRef, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
-import { GetComponentSelect, GetAttrs } from '../core';
-// const selector: string = GetComponentSelect('button');
-// console.log(selector);
-const BUTTON_HOST_ATTRIBUTES = GetAttrs('button');
-const reg = /\[(.+?)\]/g;
+import { MixinColor, OwnColor, OwnColorCtor, MixinDisabled, OwnDisableCtor, OwnDisable } from '../core';
+// const reg = /\[(.+?)\]/g;
+
+const BUTTON_HOST_ATTRIBUTES = [
+  'fan-btn',          // 基本按钮 突出 + 阴影
+  'fan-flat-btn',     // 平面
+  'fan-stroke-btn',   // 边框
+  'fan-text-btn',     // 文字
+  'mini',       // 小
+  'common',     // 普通
+  'medium',     // 中等
+  'large',      // 巨大
+  'block',      // 块级 100%
+];
+export class FanBtnBase {
+  constructor(public _elementRef: ElementRef) {}
+}
+export const _FanBtnMixinBase: OwnDisableCtor & OwnColorCtor & typeof FanBtnBase =
+                              MixinColor(MixinDisabled(FanBtnBase));
+
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   // tslint:disable-next-line:max-line-length
-  selector: 'button[fan-primary-button],button[fan-info-button],button[fan-success-button],button[fan-danger-button],button[fan-warning-button],button[fan-error-button],button[fan-accent-button]',
+  selector: ` button[fan-btn],
+              button[fan-flat-btn],
+              button[fan-stroke-btn],
+              button[fan-text-btn]
+            `,
   exportAs: 'fanButton',
   templateUrl: 'button.html',
   styleUrls: ['button.scss'],
+  // tslint:disable-next-line:use-host-property-decorator
+  host: {
+    '[disabled]': 'disabled || null',
+    // '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
+  },
+  // tslint:disable-next-line:use-input-property-decorator
+  inputs: ['disabled', 'disableRipple', 'color'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FanButton implements OnInit {
+export class FanButton extends _FanBtnMixinBase implements OnInit, OwnColor, OwnDisable {
 
-  constructor(public _elementRef: ElementRef) {
+  constructor(elementRef: ElementRef) {
+    super(elementRef);
     for (const attr of BUTTON_HOST_ATTRIBUTES) {
-      const Attr = new RegExp(reg).exec(attr)[1];
-      if (this._hasHostAttributes(Attr)) {
-        (_elementRef.nativeElement as HTMLElement).classList.add(Attr);
+      if (this._hasHostAttributes(attr)) {
+        (elementRef.nativeElement as HTMLElement).classList.add(attr);
       }
     }
   }
 
   ngOnInit() {
-    console.log(BUTTON_HOST_ATTRIBUTES);
+    console.log(this.color, this.disabled);
   }
   focus(): void {
     this._getHostElement().focus();
@@ -43,20 +69,42 @@ export class FanButton implements OnInit {
 }
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   // tslint:disable-next-line:max-line-length
-  selector: 'a[fan-primary-button],a[fan-info-button],a[fan-success-button],a[fan-danger-button],a[fan-warning-button],a[fan-error-button],a[fan-accent-button]',
+  selector: ` a[fan-btn],
+              a[fan-flat-btn],
+              a[fan-stroke-btn],
+              a[fan-text-btn]
+            `,
   exportAs: 'fanButton, fanAnchor',
+  // tslint:disable-next-line:use-host-property-decorator
+  host: {
+    // Note that we ignore the user-specified tabindex when it's disabled for
+    // consistency with the `mat-button` applied on native buttons where even
+    // though they have an index, they're not tabbable.
+    '[attr.tabindex]': 'disabled ? -1 : (tabIndex || 0)',
+    '[attr.disabled]': 'disabled || null',
+    '[attr.aria-disabled]': 'disabled.toString()',
+    '(click)': '_haltDisabledEvents($event)',
+    // '[class._mat-animation-noopable]': '_animationMode === "NoopAnimations"',
+  },
+  // tslint:disable-next-line:use-input-property-decorator
+  inputs: ['disabled', 'disableRipple', 'color'],
   templateUrl: 'button.html',
   styleUrls: ['button.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FanAnchor extends FanButton implements OnInit {
+export class FanAnchor extends FanButton {
   constructor(elementRef: ElementRef) {
     super(elementRef);
   }
-  ngOnInit(): void {
+  _haltDisabledEvents(event: Event) {
+    // 禁用按钮不应应用任何操作
+    if (this.disabled) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }
   }
 
 }
