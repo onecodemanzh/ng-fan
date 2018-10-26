@@ -1,8 +1,32 @@
 @import './button.base';
-
+$min-height-space-list: -30 -36 -40 -48 -60 -80 -100 -120;
 @each $status, $color in $status-map {/* .#{$prefix}-#{$status}-button */
-    .#{$prefix}-#{$status} {
+    button.#{$prefix}-#{$status}, a.#{$prefix}-#{$status} {
         background-color: $color;
-        
+        &.#{$prefix}-mini-btn{
+            width: $mini-btn-width;
+            height: $mini-btn-height;
+            outline: 0;
+        }
+        &.#{$prefix}-common-btn{
+            width: $common-btn-width;
+            height: $common-btn-height;
+            outline: 0;
+        }
+        &.#{$prefix}-medium-btn{
+            width: $medium-btn-width;
+            height: $medium-btn-height;
+            outline: 0;
+        }
+        &.#{$prefix}-large-btn{
+            width: $large-btn-width;
+            height: $large-btn-height;
+            outline: 0;
+        }
+        &.#{$prefix}-block-btn{
+            width:  $block-btn-width;
+            height: $block-btn-height;
+            outline: 0;
+        }
     }
 }

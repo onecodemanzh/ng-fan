@@ -8,6 +8,8 @@ const BUTTON_HOST_ATTRIBUTES = [
   'fan-flat-btn',     // 平面
   'fan-stroke-btn',   // 边框
   'fan-text-btn',     // 文字
+];
+const BUTTON_HOST_SIZES = [
   'mini',       // 小
   'common',     // 普通
   'medium',     // 中等
@@ -48,6 +50,11 @@ export class FanButton extends _FanBtnMixinBase implements OnInit, OwnColor, Own
     for (const attr of BUTTON_HOST_ATTRIBUTES) {
       if (this._hasHostAttributes(attr)) {
         (elementRef.nativeElement as HTMLElement).classList.add(attr);
+      }
+    }
+    for (const attr of BUTTON_HOST_SIZES) {
+      if (this._hasHostAttributes(attr)) {
+        (elementRef.nativeElement as HTMLElement).classList.add(`fan-${attr}-btn`);
       }
     }
   }
