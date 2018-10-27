@@ -1,8 +1,113 @@
 @import './button.base';
 
-@each $status, $color in $status-map {/* .#{$prefix}-#{$status}-button */
-    .#{$prefix}-#{$status} {
-        background-color: $color;
-        
+button.fan-mini-btn, a.fan-mini-btn{
+    @include fan-btn-base-style($mini-btn-width, $mini-btn-height);
+}
+button.fan-common-btn, a.fan-common-btn{
+    @include fan-btn-base-style($common-btn-width, $common-btn-height);
+}
+button.fan-medium-btn, a.fan-medium-btn{
+    @include fan-btn-base-style($medium-btn-width, $medium-btn-height);
+}
+button.fan-large-btn, a.fan-large-btn{
+    @include fan-btn-base-style($large-btn-width, $large-btn-height);
+}
+button.fan-block-btn, a.fan-block-btn{
+    @include fan-btn-base-style($block-btn-width, $block-btn-height);
+}
+@each $mode in $fan-btn-mode-list {
+    button.#{$mode}, a.#{$mode}{
+        @include fan-btn-base-style($common-btn-width, $common-btn-height);
+        background: #fff;
+        color: #000;
+        padding: 0 8px;
+        transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+        @if $mode == 'fan-btn' {
+            @each $status, $color in $status-map {
+                &.fan-#{$status} {
+                    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+                    background-color: $color;
+                    color: #fff;
+                    &:hover{
+                        background-color: lighten($color, 6%);
+                    }
+                    &:focus, &:active{
+                        background-color: darken($color, 6%);
+                    }
+                }
+                &:not(.fan-spring):active{
+                    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+                }
+            }
+        } @else if $mode == 'fan-stroke-btn' {
+            border: 1px solid rgba(0, 0, 0, 0.87);
+            box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+            @each $status, $color in $status-map {
+                &:hover{
+                    background-color: lighten(rgba(0, 0, 0, 0.87), 80%);
+                }
+                &.fan-#{$status} {
+                    color: $color;
+                    border: 1px solid $color;
+                    &:hover{
+                        background-color: lighten($color, 14%);
+                        color: #fff;
+                    }
+                    &:focus, &:active{
+                        background-color: lighten($color, 16%);
+                        color: #fff;
+                    }
+                }
+                &:not(.fan-spring):active{
+                    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+                }
+            }
+        } @else if $mode == 'fan-dashed-btn' {
+            border: 1px dashed rgba(0, 0, 0, 0.87);
+            box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+            @each $status, $color in $status-map {
+                &:hover{
+                    background-color: lighten(rgba(0, 0, 0, 0.87), 80%);
+                }
+                &.fan-#{$status} {
+                    color: $color;
+                    border: 1px dashed $color;
+                    &:hover{
+                        background-color: lighten($color, 20%);
+                        color: #fff;
+                    }
+                    &:focus, &:active{
+                        background-color: lighten($color, 26%);
+                        color: #fff;
+                    }
+                }
+                &:not(.fan-spring):active{
+                    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+                }
+            }
+        } @else if $mode == 'fan-text-btn' {
+            @each $status, $color in $status-map {
+                &:hover{
+                    background-color: lighten(rgba(0, 0, 0, 0.87), 80%);
+                }
+                &.fan-#{$status} {
+                    color: $color;
+                    &:hover{
+                        background-color: lighten($color, 14%);
+                        color: #fff;
+                    }
+                    &:focus, &:active{
+                        background-color: lighten($color, 16%);
+                        color: #fff;
+                    }
+                }
+                &:active{
+                    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+                }
+            }
+        }
+        &.fan-spring:active{
+            transform: scale(.95);
+        }
     }
 }

@@ -1,16 +1,53 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1 (click)="btn.focus()">
-    Welcome to {{ title }}!
-  </h1>
-</div>
-<h2>Here are some links to help you start: </h2>
-<button fan-flat-btn common #btn1 color="primary"  (click)="expression(btn)">primary</button>
-<button fan-flat-btn mini #btn0 color="info"  (click)="expression(btn)">info</button>
-<button fan-flat-btn mini #btn2 color="success"   (click)="expression(btn)">success</button>
-<button fan-flat-btn mini #btn3 color="danger"  (click)="expression(btn)">12313111</button>
-<button fan-flat-btn mini color="danger">danger</button>
-<button fan-flat-btn mini color="warning">warning</button>
-<button fan-flat-btn mini color="error">error</button>
-<button fan-flat-btn mini color="accent">accent</button>
-<a fan-flat-btn>1231231</a>
+<button fan-btn>基本按钮</button>
+<button fan-btn color="primary">primary</button>
+<button fan-btn color="info">info</button>
+<button fan-btn color="success">success</button>
+<button fan-btn color="warning">warning</button>
+<button fan-btn color="error">error</button>
+<button fan-btn color="accent">accent</button>
+<button fan-btn color="danger">danger</button>
+
+<br>
+
+<button fan-stroke-btn>基本按钮</button>
+<button fan-stroke-btn color="primary">primary</button>
+<button fan-stroke-btn color="info">info</button>
+<button fan-stroke-btn color="success">success</button>
+<button fan-stroke-btn color="warning">warning</button>
+<button fan-stroke-btn color="error">error</button>
+<button fan-stroke-btn color="accent">accent</button>
+<button fan-stroke-btn color="danger">danger</button>
+
+<br>
+<h1>fan-spring</h1>
+<button fan-stroke-btn fan-spring>基本按钮</button>
+<button fan-stroke-btn fan-spring color="primary">primary</button>
+<button fan-dashed-btn fan-spring color="info">info</button>
+<button fan-dashed-btn fan-spring color="success">success</button>
+<button fan-stroke-btn fan-spring color="warning">warning</button>
+<button fan-stroke-btn fan-spring color="error">error</button>
+<button fan-stroke-btn fan-spring color="accent">accent</button>
+<button fan-stroke-btn fan-spring color="danger">danger</button>
+
+<br>
+<button fan-text-btn fan-spring>基本按钮</button>
+<button fan-text-btn fan-spring color="primary">primary</button>
+<button fan-text-btn fan-spring color="info">info</button>
+<button fan-text-btn fan-spring color="success">success</button>
+<button fan-text-btn fan-spring color="warning">warning</button>
+<button fan-text-btn fan-spring color="error">error</button>
+<button fan-text-btn fan-spring color="accent">accent</button>
+<button fan-text-btn fan-spring color="danger">danger</button>
+
+<br>
+<button common #btn1 color="primary">primary</button>
+<button  mini #btn0 color="info">info</button>
+<br>
+<button fan-btn mini #btn2 (click)="expression(btn)">success</button>
+<button   fan-spring mini color="success"   (click)="expression(btn)">success</button>
+<button fan-btn mini #btn3 color="danger"  (click)="expression(btn)">12313111</button>
+<button fan-btn common color="danger">danger</button>
+<button fan-btn medium color="warning">warning</button>
+<button fan-btn large color="error">error</button>
+<button fan-btn block color="accent">accent</button>
+<a  color="warning">1231231</a>

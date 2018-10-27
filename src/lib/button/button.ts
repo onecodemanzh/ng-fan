@@ -5,9 +5,12 @@ import { MixinColor, OwnColor, OwnColorCtor, MixinDisabled, OwnDisableCtor, OwnD
 
 const BUTTON_HOST_ATTRIBUTES = [
   'fan-btn',          // 基本按钮 突出 + 阴影
-  'fan-flat-btn',     // 平面
+  'fan-dashed-btn',   // 虚线边框
   'fan-stroke-btn',   // 边框
   'fan-text-btn',     // 文字
+  'fan-spring',       // 弹跳效果
+];
+const BUTTON_HOST_SIZES = [
   'mini',       // 小
   'common',     // 普通
   'medium',     // 中等
@@ -24,7 +27,7 @@ export const _FanBtnMixinBase: OwnDisableCtor & OwnColorCtor & typeof FanBtnBase
   // moduleId: module.id,
   // tslint:disable-next-line:max-line-length
   selector: ` button[fan-btn],
-              button[fan-flat-btn],
+              button[fan-dashed-btn],
               button[fan-stroke-btn],
               button[fan-text-btn]
             `,
@@ -48,6 +51,11 @@ export class FanButton extends _FanBtnMixinBase implements OnInit, OwnColor, Own
     for (const attr of BUTTON_HOST_ATTRIBUTES) {
       if (this._hasHostAttributes(attr)) {
         (elementRef.nativeElement as HTMLElement).classList.add(attr);
+      }
+    }
+    for (const attr of BUTTON_HOST_SIZES) {
+      if (this._hasHostAttributes(attr)) {
+        (elementRef.nativeElement as HTMLElement).classList.add(`fan-${attr}-btn`);
       }
     }
   }

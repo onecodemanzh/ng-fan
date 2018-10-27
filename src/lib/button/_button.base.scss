@@ -1,2 +1,36 @@
 @import '../core/theming/variable';
 
+
+$mini-btn-width: 60px;
+$common-btn-width: 76px;
+$medium-btn-width: 80px;
+$large-btn-width: 90px;
+$block-btn-width: 100%;
+
+$mini-btn-height: 28px;
+$common-btn-height: 30px;
+$medium-btn-height: 32px;
+$large-btn-height: 34px;
+$block-btn-height: 36px;
+
+$border-radius: 4px;
+$border: 0;
+
+$fan-btn-mode-list: fan-btn fan-stroke-btn fan-text-btn fan-dashed-btn;
+
+$button-focus-transition: opacity 200ms $swift-ease-in-out-timing-function,
+                              background-color 200ms $swift-ease-in-out-timing-function !default;
+
+@mixin fan-btn-base-style($min-width, $height){
+    user-select: none;
+    border: none;
+    min-width: $min-width;
+    height: $height;
+    border-radius: $border-radius;
+}
+
+// @each $width in $width-space-list {
+//     .width#{str-slice(#{$width}, 1, 6 )} {
+//         width: str-slice(#{$width}, 2, 6 ) + $unit $important;
+//     }
+// }
