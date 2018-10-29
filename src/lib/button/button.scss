@@ -1,22 +1,22 @@
 @import './button.base';
 
-button.fan-mini-btn, a.fan-mini-btn{
+.fan-mini-btn, .fan-mini-btn{
     @include fan-btn-base-style($mini-btn-width, $mini-btn-height);
 }
-button.fan-common-btn, a.fan-common-btn{
+.fan-common-btn, .fan-common-btn{
     @include fan-btn-base-style($common-btn-width, $common-btn-height);
 }
-button.fan-medium-btn, a.fan-medium-btn{
+.fan-medium-btn, .fan-medium-btn{
     @include fan-btn-base-style($medium-btn-width, $medium-btn-height);
 }
-button.fan-large-btn, a.fan-large-btn{
+.fan-large-btn, .fan-large-btn{
     @include fan-btn-base-style($large-btn-width, $large-btn-height);
 }
-button.fan-block-btn, a.fan-block-btn{
+.fan-block-btn, .fan-block-btn{
     @include fan-btn-base-style($block-btn-width, $block-btn-height);
 }
 @each $mode in $fan-btn-mode-list {
-    button.#{$mode}, a.#{$mode}{
+    .#{$mode}{
         @include fan-btn-base-style($common-btn-width, $common-btn-height);
         background: #fff;
         color: #000;
