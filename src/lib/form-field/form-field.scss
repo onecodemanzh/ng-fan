@@ -1,0 +1,11 @@
+@import '../core/theming/variable';
+.fan-form-field{
+    display: inline-flex;
+    align-items: baseline;
+    box-sizing: border-box;
+    width: 100%;
+    .fan-error{
+        display: block;
+        color: red;
+    }
+}

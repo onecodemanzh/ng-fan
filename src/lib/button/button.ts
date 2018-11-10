@@ -31,7 +31,7 @@ export const _FanBtnMixinBase: OwnDisableCtor & OwnColorCtor & typeof FanBtnBase
               button[fan-stroke-btn],
               button[fan-text-btn]
             `,
-  exportAs: 'fanButton',
+  // exportAs: 'fanButton',
   templateUrl: 'button.html',
   styleUrls: ['button.scss'],
   // tslint:disable-next-line:use-host-property-decorator
@@ -61,7 +61,7 @@ export class FanButton extends _FanBtnMixinBase implements OnInit, OwnColor, Own
   }
 
   ngOnInit() {
-    console.log(this.color, this.disabled);
+    // console.log(this.color, this.disabled);
   }
   focus(): void {
     this._getHostElement().focus();

@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './example/app.component';
-import { FanButtonModule } from './lib';
+import { FanButtonModule, FanFormFieldModule } from './lib';
+import { HERO_DI_CONFIG, APP_CONFIG } from './DI';
 
 @NgModule({
   declarations: [
@@ -10,9 +11,12 @@ import { FanButtonModule } from './lib';
   ],
   imports: [
     BrowserModule,
-    FanButtonModule
+    FanButtonModule,
+    FanFormFieldModule
   ],
-  providers: [],
+  providers: [
+    { provide: APP_CONFIG, useValue: HERO_DI_CONFIG }
+  ],
   bootstrap: [AppComponent]
 })
 export class EnterModule { }
