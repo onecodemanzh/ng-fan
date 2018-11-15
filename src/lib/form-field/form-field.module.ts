@@ -1,5 +1,5 @@
 import { FanSuffix } from './suffix';
-import { FanLabel } from './lable';
+import { FanLabel } from './label';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FanFormField } from './form-field';

@@ -1,4 +1,5 @@
 @import '../core/theming/variable';
+/* 表单字段 */
 .fan-form-field{
     display: inline-flex;
     align-items: baseline;
@@ -9,3 +10,12 @@
         color: red;
     }
 }
+/* 标准表单样式 */
+.fan-form-field-appearance-standard{}
+
+/* 下划线表单样式 */
+.fan-form-field-appearance-underline{}
+
+/* label 位置 up, left */
+.fan-label-position-up{}
+.fan-label-position-left{}
